@@ -2,8 +2,6 @@
 
 const { default: mongoose } = require("mongoose");
 const { countConnect } = require("../helpers/check.connect");
-const mongodbConStr =
-  "mongodb+srv://dbuser:memeuOFhPSbfzemG@cluster0.viupnqn.mongodb.net/?retryWrites=true&w=majority";
 
 class Database {
   constructor() {
@@ -19,7 +17,7 @@ class Database {
         }
 
         mongoose
-          .connect(mongodbConStr)
+          .connect(process.env.MONGODB_URI)
           .then((_) => {
             console.log("Connect Mongodb Success");
             countConnect();

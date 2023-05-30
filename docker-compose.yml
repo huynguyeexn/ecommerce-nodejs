@@ -5,7 +5,7 @@ services:
     container_name: ecommerce-nodejs
     entrypoint: /bin/sh
     ports:
-      - 8000:8000
+      - ${PORT}:${PORT}
     working_dir: /srv/app
     volumes:
       - type: bind
